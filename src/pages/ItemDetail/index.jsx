@@ -6,6 +6,7 @@ import { getData } from "../../services/apiClient";
 import { useState } from "react";
 import { useContext } from "react";
 import { CartContext } from "../../context/CardContext";
+import { ADD } from "../../context/CardContext";
 
 const ItemDetail = () => {
   const params = useParams();
@@ -13,8 +14,7 @@ const ItemDetail = () => {
   const [images, setImages] = useState([]);
   const [reviews, setReviews] = useState([]);
   const [mainImg, setMainImg] = useState(images?.[0]);
-  const { cartItems, setCartItems } = useContext(CartContext);
-  console.log("cartItems", cartItems);
+  const { dispatch } = useContext(CartContext);
 
   useEffect(() => {
     getData(`/products/${params.productId}`).then((data) => {
@@ -53,7 +53,7 @@ const ItemDetail = () => {
           <button
             className={style.addCart}
             onClick={() => {
-              setCartItems((prevItems) => [...prevItems, product]);
+              dispatch({ type: ADD, payload: product });
             }}
           >
             add to cart

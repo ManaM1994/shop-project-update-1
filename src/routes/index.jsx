@@ -1,13 +1,26 @@
 import { createBrowserRouter } from "react-router-dom";
-import Layout from "../Layout/main";
-import HomePage from "../pages/Home";
-import Shop from "../pages/Shop";
-import AboutUs from "../pages/AboutUs";
-import Collection from "../pages/Collection";
-import Error from "../pages/Error";
-import PrivateLayout from "../Layout/private";
-import ItemDetail from "../pages/ItemDetail";
-import { Login } from "../pages/login";
+import { ReducerTest } from "../components/reducerTest";
+import { Page } from "../pages/Counter";
+import { lazy } from "react";
+
+const Layout = lazy(() => import("../Layout/main"));
+const PrivateLayout = lazy(() => import("../Layout/private"));
+const HomePage = lazy(() => import("../pages/Home"));
+const Collection = lazy(() => import("../pages/Collection"));
+const AboutUs = lazy(() => import("../pages/AboutUs"));
+const Error = lazy(() => import("../pages/Error"));
+const Shop = lazy(() => import("../pages/Shop"));
+const Login = lazy(() =>
+  import("../pages/login").then((module) => {
+    return { defult: module.Login };
+  })
+);
+const Cart = lazy(() =>
+  import("../pages/cart").then((module) => {
+    return { defult: module.Cart };
+  })
+);
+const ItemDetail = lazy(() => import("../pages/ItemDetail"));
 
 export const router = createBrowserRouter([
   {
@@ -34,6 +47,18 @@ export const router = createBrowserRouter([
       {
         path: "login",
         element: <Login />,
+      },
+      {
+        path: "reducer",
+        element: <ReducerTest />,
+      },
+      {
+        path: "cart",
+        element: <Cart />,
+      },
+      {
+        path: "counter",
+        element: <Page />,
       },
     ],
   },

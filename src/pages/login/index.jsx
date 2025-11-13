@@ -6,17 +6,21 @@ export const Login = () => {
   const { auth, setAuth } = useContext(AuthContext);
 
   return (
-    <div>
-      <h1>welcome to login page</h1>
-      <button
-        onClick={() => {
-          setAuth({ user: "Mana", id: 2 });
-        }}
-      >
-        {" "}
-        login
-      </button>
-      {auth?.user ? <p>{auth.user}</p> : null}
-    </div>
+    <form>
+      <lable>Username:</lable>
+      <input type="text"/>
+    </form>
+    // <div>
+    //   <h1>welcome to login page</h1>
+    //   <button
+    //     onClick={() => {
+    //       setAuth({ user: "Mana", id: 2 });
+    //     }}
+    //   >
+    //     {" "}
+    //     login
+    //   </button>
+    //   {auth?.user ? <p>{auth.user}</p> : null}
+    // </div>
   );
 };

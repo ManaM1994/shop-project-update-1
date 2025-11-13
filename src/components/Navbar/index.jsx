@@ -5,6 +5,7 @@ import { LuLogIn } from "react-icons/lu";
 import { useAuth } from "../../hooks/useAuth";
 import { useCart } from "../../hooks/useCart";
 import { LuCircleUser } from "react-icons/lu";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const { cartItems } = useCart();
@@ -49,12 +50,13 @@ const Navbar = () => {
         </ul>
       </nav>
       <div className={styles.logins}>
-        {auth ? <LuCircleUser fontSize={24}/> : <LuLogIn fontSize={24} />}
-
-        <div>
-          <HiOutlineShoppingCart fontSize={24} className={styles.cart} />
-          <span className={styles.badge}>{cartItems?.length}</span>
-        </div>
+        {auth ? <LuCircleUser fontSize={24} /> : <LuLogIn fontSize={24} />}
+        <Link to="./cart">
+          <div>
+            <HiOutlineShoppingCart fontSize={24} className={styles.cart} />
+            <span className={styles.badge}>{cartItems?.length}</span>
+          </div>
+        </Link>
       </div>
     </div>
   );
