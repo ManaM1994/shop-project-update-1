@@ -1,6 +1,4 @@
 import { createBrowserRouter } from "react-router-dom";
-import { ReducerTest } from "../components/reducerTest";
-import { Page } from "../pages/Counter";
 import { lazy } from "react";
 
 const Layout = lazy(() => import("../Layout/main"));
@@ -10,16 +8,8 @@ const Collection = lazy(() => import("../pages/Collection"));
 const AboutUs = lazy(() => import("../pages/AboutUs"));
 const Error = lazy(() => import("../pages/Error"));
 const Shop = lazy(() => import("../pages/Shop"));
-const Login = lazy(() =>
-  import("../pages/login").then((module) => {
-    return { defult: module.Login };
-  })
-);
-const Cart = lazy(() =>
-  import("../pages/cart").then((module) => {
-    return { defult: module.Cart };
-  })
-);
+const Login = lazy(() => import("../pages/login"));
+const Cart = lazy(() => import("../pages/cart"));
 const ItemDetail = lazy(() => import("../pages/ItemDetail"));
 
 export const router = createBrowserRouter([
@@ -49,16 +39,8 @@ export const router = createBrowserRouter([
         element: <Login />,
       },
       {
-        path: "reducer",
-        element: <ReducerTest />,
-      },
-      {
         path: "cart",
         element: <Cart />,
-      },
-      {
-        path: "counter",
-        element: <Page />,
       },
     ],
   },

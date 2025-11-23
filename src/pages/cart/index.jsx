@@ -6,7 +6,7 @@ const productItems = [
   { id: 1, title: "Banana", price: 2000, quantity: 3 },
   { id: 2, title: "Cherry", price: 3000, quantity: 7 },
 ];
-export const Cart = () => {
+const Cart = () => {
   const { cartItems, dispatch } = useCart();
   return (
     <div className="container mx-auto px-4 py-8">
@@ -69,3 +69,4 @@ export const Cart = () => {
     </div>
   );
 };
+export default Cart;
