@@ -50,7 +50,7 @@ const Navbar = () => {
         </ul>
       </nav>
       <div className={styles.logins}>
-        {auth ? <LuCircleUser fontSize={24} /> : <LuLogIn fontSize={24} />}
+        {auth?.id ? <LuCircleUser fontSize={24} /> : <LuLogIn fontSize={24} />}
         <Link to="./cart">
           <div>
             <HiOutlineShoppingCart fontSize={24} className={styles.cart} />

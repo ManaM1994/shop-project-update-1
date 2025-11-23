@@ -1,14 +1,9 @@
 import { memo } from "react";
 
 const Button = ({ lable, onClick }) => {
-  console.log("button render");
-
   return (
     <div>
-      <button
-        className="border border-gray-700 rounded-sm p-3 bg-slate-800 text-white"
-        onClick={onClick}
-      >
+      <button className="border border-gray-700 rounded-md p-3 bg-slate-800 text-white">
         {lable}
       </button>
     </div>

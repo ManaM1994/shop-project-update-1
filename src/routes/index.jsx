@@ -38,10 +38,6 @@ export const router = createBrowserRouter([
         path: "login",
         element: <Login />,
       },
-      {
-        path: "cart",
-        element: <Cart />,
-      },
     ],
   },
   {
@@ -50,6 +46,10 @@ export const router = createBrowserRouter([
       {
         path: "shop",
         element: <Shop />,
+      },
+      {
+        path: "cart",
+        element: <Cart />,
       },
     ],
   },

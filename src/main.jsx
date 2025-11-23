@@ -6,12 +6,15 @@ import { router } from "./routes/index.jsx";
 import AuthContextProvider from "./context/AuthContext.jsx";
 import { Provider } from "react-redux";
 import { store } from "./redux/store.js";
+import CartContextProvider from "./context/CardContext.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Provider store={store}>
       <AuthContextProvider>
-        <RouterProvider router={router} />
+        <CartContextProvider>
+          <RouterProvider router={router} />
+        </CartContextProvider>
       </AuthContextProvider>
     </Provider>
   </StrictMode>

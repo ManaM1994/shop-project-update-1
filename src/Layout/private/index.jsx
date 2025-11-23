@@ -1,19 +1,22 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { useAuth } from "../../hooks/useAuth";
 import { Navigate, Outlet } from "react-router-dom";
 import Navbar from "../../components/Navbar";
+import styles from "../main/layout.module.scss";
 
 const PrivateLayout = () => {
-  const { username } = useAuth();
+  const { auth } = useAuth();
 
-  if (!username) {
-    return <Navigate to="/" />;
+  if (!auth?.id) {
+    return <Navigate to="/login" />;
   }
 
   return (
-    <div className="h-100vh flex flex-col items-center">
+    <div className={styles.layout}>
       <Navbar />
-      <Outlet />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Outlet />
+      </Suspense>
     </div>
   );
 };
